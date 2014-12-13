@@ -22,6 +22,7 @@ import org.wso2.charon.core.exceptions.CharonException;
 
 public class SCIMUser extends org.wso2.charon.core.objects.User {
 
+    //these entirs are for the custom defined scim attributes
     private static final String DATE_OF_BIRTH = "dateOfBirth";
     private static final String COUNTRY = "country";
 
@@ -44,21 +45,27 @@ public class SCIMUser extends org.wso2.charon.core.objects.User {
         setAttribute(wso2extension);
     }
 
+    /**
+     * This method is a custom added method to add custom scim attribute dateOfBirth
+     * You will have to configure relevant wso2is to add custom configured scim attribute dateOfBirth as mentioned in
+     * 
+     * @param dateOfBirth
+     * @throws CharonException
+     */
     public void setDateOfBirth(String dateOfBirth) throws CharonException {
        SimpleAttribute atr = new SimpleAttribute(DATE_OF_BIRTH, dateOfBirth);
-      // ComplexAttribute atr2 = new ComplexAttribute("wso2Extension");
-      // atr2.setSubAttribute(atr);
        getWso2ExtensionAttribute().setSubAttribute(atr);
        setWso2ExtensionAttribute();
     }
 
+    /**
+     * This method is a custom added method to add custom scim attribute Country
+     * You will have to configure relevant wso2is to add custom scim attribute dateOfBirth as mentioned in [01]
+     * @param Country
+     * @throws CharonException
+     */
     public void setCountry(String Country) throws CharonException {
         SimpleAttribute atr = new SimpleAttribute(COUNTRY, Country);
-//        ComplexAttribute atr2 = new ComplexAttribute("wso2Extension");
-//        atr2.setSubAttribute(atr);
-//        setAttribute(atr2);
-//        wso2extension.setSubAttribute(atr);
-//        setAttribute(wso2extension);
         getWso2ExtensionAttribute().setSubAttribute(atr);
         setWso2ExtensionAttribute();
     }

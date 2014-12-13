@@ -48,7 +48,8 @@ public class SCIMUser extends org.wso2.charon.core.objects.User {
     /**
      * This method is a custom added method to add custom scim attribute dateOfBirth
      * You will have to configure relevant wso2is to add custom configured scim attribute dateOfBirth as mentioned in
-     * 
+     * [1]. http://sureshatt.blogspot.com/2013/06/scim-user-provisioning-with-wso2.html
+     * [2]. http://sureshatt.blogspot.com/2013/07/extending-scim-user-schema-of-wso2.html
      * @param dateOfBirth
      * @throws CharonException
      */
@@ -60,7 +61,9 @@ public class SCIMUser extends org.wso2.charon.core.objects.User {
 
     /**
      * This method is a custom added method to add custom scim attribute Country
-     * You will have to configure relevant wso2is to add custom scim attribute dateOfBirth as mentioned in [01]
+     * You will have to configure relevant wso2is to add custom scim attribute dateOfBirth as mentioned in
+     * [1]. http://sureshatt.blogspot.com/2013/06/scim-user-provisioning-with-wso2.html
+     * [2]. http://sureshatt.blogspot.com/2013/07/extending-scim-user-schema-of-wso2.html
      * @param Country
      * @throws CharonException
      */

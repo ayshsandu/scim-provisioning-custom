@@ -61,8 +61,8 @@ public class SCIMSamplesUtils {
     public static String oauthAccessToken = null;
 
     public static String userNameToCreateUser = "HasiniTG";
-    public static String userNameToUpdateUser = "HasiniG";
-    public static String userNameToDeleteUser = "HasiniG";
+    public static String userNameToUpdateUser = "HasiniTG";
+    public static String userNameToDeleteUser = "HasiniTG";
 
     public static String groupDisplayNameToCreateGroup = "eng";
     public static String updatedGroupDisplayName = "Engineering";

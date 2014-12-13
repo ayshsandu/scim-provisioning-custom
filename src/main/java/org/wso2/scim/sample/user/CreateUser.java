@@ -54,8 +54,10 @@ public class CreateUser {
             SCIMSamplesUtils.setKeyStore();
             //create SCIM client
             SCIMClient scimClient = new SCIMClient();
-            //create a user according to SCIM User Schema
-            User scimUser = scimClient.createUser();
+
+            //create new SCIMUser instance
+            SCIMUser scimUser = new SCIMUser();
+
             scimUser.setUserName(SCIMSamplesUtils.userNameToCreateUser);
             scimUser.setExternalId(externalID);
             scimUser.setEmails(emails);
@@ -64,7 +66,11 @@ public class CreateUser {
             //scimUser.setPreferredLanguage(language);
             scimUser.setPhoneNumber(phone_number, "work", false);
             scimUser.setFamilyName("Gunasinghe");
-            
+
+            //set custom scim attributes
+            scimUser.setDateOfBirth("1989-3-10");
+            scimUser.setCountry("SL");
+
             //adding a non-ready-made attribute
             Map<String, Object> subs = new HashMap<String, Object>();
             subs.put("display", "ABC User");
@@ -74,7 +80,7 @@ public class CreateUser {
             entAttr = (MultiValuedAttribute) DefaultAttributeFactory.createAttribute(
                     SCIMSchemaDefinitions.ENTITLEMENTS, entAttr);
             scimUser.setAttribute(entAttr);
-            
+
             //encode the user in JSON format
             String encodedUser = scimClient.encodeSCIMObject(scimUser, SCIMConstants.JSON);
 

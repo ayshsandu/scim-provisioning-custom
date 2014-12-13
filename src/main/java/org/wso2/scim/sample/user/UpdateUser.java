@@ -40,6 +40,8 @@ public class UpdateUser {
 
     private static String newDisplayName = "HasiniThilomaGunasinghe";
     private static String newWorkEmail = "hasini@wso2.com";
+    private static String dateOfBirth = "1990-10-13";
+    private static String country = "Sri Lanka";
 
     public static void main(String[] args) {
 
@@ -50,11 +52,19 @@ public class UpdateUser {
             SCIMSamplesUtils.setKeyStore();
             //create SCIM client
             SCIMClient scimClient = new SCIMClient();
+
             //create a user according to SCIM User Schema
-            User scimUser = scimClient.createUser();
+            //User scimUser = scimClient.createUser();
+            SCIMUser scimUser = new SCIMUser();
+
             scimUser.setUserName(SCIMSamplesUtils.userNameToUpdateUser);
             scimUser.setDisplayName(newDisplayName);
             scimUser.setWorkEmail(newWorkEmail, true);
+
+            //update custom attribute date
+            scimUser.setDateOfBirth(dateOfBirth);
+            scimUser.setCountry(country);
+
             //encode the user in JSON format
             String encodedUser = scimClient.encodeSCIMObject(scimUser, SCIMConstants.JSON);
 

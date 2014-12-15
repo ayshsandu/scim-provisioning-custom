@@ -42,7 +42,7 @@ public class SCIMUser extends org.wso2.charon.core.objects.User {
     }
 
     private synchronized void setWso2ExtensionAttribute(){
-        setAttribute(wso2extension);
+        setAttribute(getWso2ExtensionAttribute());
     }
 
     /**
